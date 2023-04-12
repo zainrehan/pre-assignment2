@@ -1,0 +1,54 @@
+<mat-card style="width: 500px;">
+    <mat-label style="font-size: larger; font-weight: bold; padding: 8px;">Add Question</mat-label>
+    <mat-form-field style="padding: 6px;">
+        <mat-label>Select Type</mat-label>
+        <mat-select [(ngModel)]="questionType">
+            <mat-option value="textarea">Text-Area</mat-option>
+            <mat-option value="checkbox">Check-Box</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="questionType === 'textarea'" class="text-div">
+        <textarea placeholder="Write your Question here" style="width: 95%; height: 100%;"
+            [(ngModel)]="this.text"></textarea>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="isrequired">
+            This field is required
+        </label>
+        <br>
+        <button type="submit" class="btn btn-warning" (click)="onSubmit(text)">Submit</button>
+        <br>
+        <br>
+    </div>
+
+    <div *ngIf="questionType === 'checkbox'" class="check-div">
+        <textarea placeholder="Write your Question here" style="width: 95%; height: 100%;"
+            [(ngModel)]="this.checkQ.Question"></textarea>
+        <br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="fourth">
+            <strong> Allow User to Specify their own answer</strong>
+        </label>
+        <br><br>
+        <h2><strong>Add Answers Here</strong></h2>
+        <div>
+            <mat-form-field class="checkOptionDiv" appearance="outline">
+                <mat-label>Option 1</mat-label>
+                <input matInput type="text" [(ngModel)]='this.checkQ.Option1'>
+            </mat-form-field>
+            <mat-form-field class="checkOptionDiv" appearance="outline">
+                <mat-label>Option 2</mat-label>
+                <input matInput type="text" [(ngModel)]="this.checkQ.Option2">
+            </mat-form-field>
+            <mat-form-field class="checkOptionDiv" appearance="outline">
+                <mat-label>Option 3</mat-label>
+                <input matInput type="text" [(ngModel)]="this.checkQ.Option3">
+            </mat-form-field>
+            <mat-form-field class="checkOptionDiv" appearance="outline">
+                <mat-label>Option 4</mat-label>
+                <input matInput type="text" [(ngModel)]="this.checkQ.Option4">
+            </mat-form-field>
+        </div>
+        <button type="submit" class="btn btn-warning" (click)="onCheckSubmit(this.checkQ.Question)">Submit</button>
+        <br><br>
+    </div>
+</mat-card>

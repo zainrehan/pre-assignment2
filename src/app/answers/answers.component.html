@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md">
+            <mat-card>
+                <cdk-virtual-scroll-viewport itemSize="10" style="height: 400px;">
+                    <div *ngFor="let qes of viewQuestion;let i=index">
+                        <div *ngIf="qes.type ==='textarea'">
+                            <strong>
+                                <p>{{i+1}}- Question:</p>
+                                <p>{{qes.Question}}</p>
+                            </strong>
+                            <p>{{viewAnswer[i].Answer}}</p>
+                        </div>
+                        <div *ngIf="qes.type ==='checkbox'">
+                            <strong>
+                                <p>{{i+1}}- Question:</p>
+                                <p>{{qes.Question}}</p>
+                            </strong>
+                            <p *ngIf="viewAnswer[i].Option1 === true">{{qes.Option1}}</p>
+                            <p *ngIf="viewAnswer[i].Option2 === true">{{qes.Option2}}</p>
+                            <p *ngIf="viewAnswer[i].Option3 === true">{{qes.Option3}}</p>
+                            <p *ngIf="viewAnswer[i].Option4 === true">{{qes.Option4}}</p>
+                            <p *ngIf="viewAnswer[i].Option5">Other - {{viewAnswer[i].Option5}}</p>
+
+                        </div>
+                    </div>
+                    <button mat-button (click)="back()"><u>Back to Forms Builder</u></button>
+                    <!-- <a (click)="back()">Back to Forms Builder</a> -->
+                </cdk-virtual-scroll-viewport>
+            </mat-card>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>

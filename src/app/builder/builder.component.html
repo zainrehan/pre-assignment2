@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md" style="margin-top: 80px;">
+            <mat-card>
+                <div style="width: 400px;">
+                    <mat-label style="font-size: large; font-weight: bold; margin-left: 70px;">Answer Following
+                        Questions</mat-label>
+                    <br>
+                    <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
+                        <div *cdkVirtualFor="let quest of viewQuestions">
+                            <div *ngIf="quest.type === 'textarea'">
+                                <strong style="font-size:large;">{{quest.Question}}*</strong>
+                                <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText"></textarea>
+                                <button class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit Answer</button>
+                            </div>
+                            <div *ngIf="quest.type === 'checkbox' && quest.Option5 === false ">
+                                <strong>{{quest.Question}}*</strong><br>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option1">{{quest.Option1}}</mat-checkbox></strong><br>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option2">{{quest.Option2}}</mat-checkbox></strong><br>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option3">{{quest.Option3}}</mat-checkbox></strong><br>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option4">{{quest.Option4}}</mat-checkbox></strong><br>
+                                <button class="btn btn-warning" (click)="onSubmitcheckAnswer()">Submit Answer</button>
+
+                            </div>
+                            <div *ngIf="quest.type === 'checkbox' && quest.Option5 === true">
+                                <strong style="font-size:large;">{{quest.Question}}*</strong><br>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option1">{{quest.Option1}}</mat-checkbox><br></strong>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option2">{{quest.Option2}}</mat-checkbox><br></strong>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option3">{{quest.Option3}}</mat-checkbox><br></strong>
+                                <strong><mat-checkbox
+                                        [(ngModel)]="this.answerOption.Option4">{{quest.Option4}}</mat-checkbox><br></strong>
+                                <strong><mat-checkbox [(ngModel)]="nature">Other</mat-checkbox><br></strong>
+                                <textarea *ngIf="nature === true"
+                                    [(ngModel)]="this.answerOption.Option5"></textarea><br>
+                                <button class="btn btn-warning" (click)="onSubmitcheckAnswer()">Submit Answer</button>
+                            </div>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+                    <a [routerLink]="''" style="margin:10px;">+ Add New Question</a><br><br>
+                    <button class="btn btn-warning" (click)="answerPage()" style="float: right; margin: 10px;">Review My
+                        Answers ></button>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>
