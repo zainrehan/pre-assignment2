@@ -75,6 +75,8 @@ export class PopUpComponent {
       title: 'Would you like to add and other Question?',
       icon: 'question',
       showCancelButton: true,
+      confirmButtonText:'Yes',
+      cancelButtonText:'No',
       confirmButtonColor: '#FFA500',
       iconColor: '#FFA500',
     }).then((value) => {
