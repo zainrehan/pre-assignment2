@@ -33,6 +33,7 @@ export class PopUpComponent {
 
   onSubmit(abc: any) {
     this.dservice.globalQuestions({
+      validations: this.isrequired,
       type: 'textarea',
       Question: this.text,
       Option1: null,
@@ -48,6 +49,8 @@ export class PopUpComponent {
       title: 'Would you like to add and other Question?',
       icon: 'question',
       showCancelButton: true,
+      confirmButtonText:'Yes',
+      cancelButtonText:'No',
       confirmButtonColor: '#FFA500',
       iconColor: '#FFA500',
     }).then((value) => {

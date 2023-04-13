@@ -8,10 +8,11 @@
                         Questions</mat-label>
                     <br>
                     <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
-                        <div *cdkVirtualFor="let quest of viewQuestions">
+                        <div *cdkVirtualFor="let quest of viewQuestions; let i=index">
                             <div *ngIf="quest.type === 'textarea'">
-                                <strong style="font-size:large;">{{quest.Question}}*</strong>
-                                <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText"></textarea>
+                                <strong style="font-size:large;">{{quest.Question}}*</strong><br>
+                                <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText[i]"
+                                    required></textarea>
                                 <button class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit Answer</button>
                             </div>
                             <div *ngIf="quest.type === 'checkbox' && quest.Option5 === false ">
@@ -25,7 +26,6 @@
                                 <strong><mat-checkbox
                                         [(ngModel)]="this.answerOption.Option4">{{quest.Option4}}</mat-checkbox></strong><br>
                                 <button class="btn btn-warning" (click)="onSubmitcheckAnswer()">Submit Answer</button>
-
                             </div>
                             <div *ngIf="quest.type === 'checkbox' && quest.Option5 === true">
                                 <strong style="font-size:large;">{{quest.Question}}*</strong><br>

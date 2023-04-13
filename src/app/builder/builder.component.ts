@@ -9,7 +9,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./builder.component.css'],
 })
 export class BuilderComponent implements OnInit {
-  answerText: string = '';
+
+  index: number=0;
+  // answerText: string= '';
+  answerText: string[]= []
   viewQuestions: any[] = [];
   answerOption = {
     Answer: null,
@@ -30,7 +33,9 @@ export class BuilderComponent implements OnInit {
 
   ngOnInit(): void {
     this.viewQuestions = this.dservice.getGlobalQuestions();
+    
   }
+
 
   answerPage() {
     this.router.navigate(['form/answers']);
@@ -40,13 +45,14 @@ export class BuilderComponent implements OnInit {
   onSubmitTextAnswer() {
     this.dservice.globalAnswers({
       type: 'textarea',
-      Answer: this.answerText,
+      Answer: this.answerText[this.index],
       Option1: null,
       Option2: null,
       Option3: null,
       Option4: null,
       Option5: null,
     });
+    this.index++;
 
     console.log(this.dservice.getglobalAnswers());
   }
