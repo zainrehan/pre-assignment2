@@ -11,7 +11,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class BuilderComponent implements OnInit {
 
   index: number=0;
-  // answerText: string= '';
   answerText: string[]= []
   viewQuestions: any[] = [];
   answerOption = {
@@ -22,18 +21,16 @@ export class BuilderComponent implements OnInit {
     Option4: false,
     Option5: null,
   };
-
   nature: boolean = false;
 
   constructor(
     private dservice: DataService,
     private router: Router,
-    private Mat: MatDialog
+    private Mat: MatDialog,
   ) {}
 
   ngOnInit(): void {
     this.viewQuestions = this.dservice.getGlobalQuestions();
-    
   }
 
 
