@@ -11,6 +11,7 @@ import { BuilderComponent } from '../builder/builder.component';
   styleUrls: ['./pop-up.component.css'],
 })
 export class PopUpComponent {
+  
   text: string = '';
   questionType: string = '';
   isrequired: boolean = false;

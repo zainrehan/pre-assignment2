@@ -8,6 +8,7 @@
         </mat-select>
     </mat-form-field>
     <div *ngIf="questionType === 'textarea'" class="text-div">
+        <input matInput required>
         <textarea placeholder="Write your Question here" style="width: 95%; height: 100%;"
             [(ngModel)]="this.text"></textarea>
         <label class="form-check-label">
@@ -22,7 +23,7 @@
 
     <div *ngIf="questionType === 'checkbox'" class="check-div">
         <textarea placeholder="Write your Question here" style="width: 95%; height: 100%;"
-            [(ngModel)]="this.checkQ.Question"></textarea>
+            [(ngModel)]="this.checkQ.Question" required ></textarea>
         <br>
         <label class="form-check-label">
             <input type="checkbox" class="form-check-input" [(ngModel)]="fourth">
