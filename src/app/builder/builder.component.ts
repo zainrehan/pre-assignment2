@@ -3,6 +3,8 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-builder',
@@ -40,6 +42,10 @@ export class BuilderComponent implements OnInit {
   answerPage() {
     this.router.navigate(['form/answers']);
     this.Mat.closeAll();
+  }
+
+  onSubmit(form:NgForm){
+console.log(form)
   }
 
   onSubmitTextAnswer() {

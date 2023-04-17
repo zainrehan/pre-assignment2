@@ -3,11 +3,13 @@
         <div class="col-md"></div>
         <div class="col-md" style="margin-top: 80px;">
             <mat-card>
-                <!-- <div style="width: 400px; margin-left: 10px;">
+                <div style="width: 400px; margin-left: 10px;">
                     <mat-label style="font-size: large; font-weight: bold; margin-left: 70px;">Answer Following
                         Questions</mat-label>
                     <br>
                     <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
+                        <strong>Progress</strong>
+        <mat-progress-bar mode='buffer'value="50"></mat-progress-bar><br>
                         <div *cdkVirtualFor="let quest of viewQuestions; let i=index">
                             <div *ngIf="quest.type === 'textarea'">
                                 <strong *ngIf="this.quest.validation === true ; else com "style="font-size:large; color: red;">{{quest.Question}}*</strong><br>
@@ -15,8 +17,8 @@
                                     <strong style="font-size:large;">{{quest.Question}}</strong><br>
                                 </ng-template>
                                 <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText[i]"
-                                    required></textarea>
-                                <button class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit Answer</button>
+                                    #tA="ngModel" required></textarea>
+                                <button [disabled]="tA" class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit Answer</button>
                             </div>
                             <div *ngIf="quest.type === 'checkbox' && quest.Option5 === false ">
                                 <strong>{{quest.Question}}*</strong><br>
@@ -58,17 +60,6 @@
                     <a [routerLink]="''" style="margin:10px;">+ Add New Question</a><br><br>
                     <button class="btn btn-warning" (click)="answerPage()" style="float: right; margin: 10px;">Review My
                         Answers ></button>
-                </div> -->
-            
-                <div style="width: 400px; margin-left: 10px;">
-                    <strong>Answer the Following Questions</strong>
-                    <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
-                        <form *ngFor="let quest of viewQuestions;">
-                            <div class="form-group">
-                                <label for="UAQ">{{quest.Question}}</label>
-                            </div>
-                        </form>
-                    </cdk-virtual-scroll-viewport>             
                 </div>
             </mat-card>
         </div>
