@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,5 +14,4 @@ AddQuestion(){
 
   this.Mat.open(PopUpComponent)
 }
-
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-builder',
@@ -27,10 +28,12 @@ export class BuilderComponent implements OnInit {
     private dservice: DataService,
     private router: Router,
     private Mat: MatDialog,
+    private toastr :ToastrService
   ) {}
 
   ngOnInit(): void {
     this.viewQuestions = this.dservice.getGlobalQuestions();
+    this.toastr.success('Welcome to Builder Component', 'from/builder');
   }
 
 

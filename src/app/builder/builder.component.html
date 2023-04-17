@@ -59,16 +59,17 @@
                     <button class="btn btn-warning" (click)="answerPage()" style="float: right; margin: 10px;">Review My
                         Answers ></button>
                 </div> -->
-            <form>
+            
                 <div style="width: 400px; margin-left: 10px;">
                     <strong>Answer the Following Questions</strong>
                     <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
-                    <div class="form-group">
-                        
-                    </div>
+                        <form *ngFor="let quest of viewQuestions;">
+                            <div class="form-group">
+                                <label for="UAQ">{{quest.Question}}</label>
+                            </div>
+                        </form>
                     </cdk-virtual-scroll-viewport>             
                 </div>
-            </form>
             </mat-card>
         </div>
         <div class="col-md"></div>

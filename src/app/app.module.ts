@@ -9,8 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatChipsModule } from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
+import { MatChipsModule} from '@angular/material/chips';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +30,7 @@ import { DataService } from './data.service';
     HomeComponent,
     BuilderComponent,
     AnswersComponent,
-    PopUpComponent
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,8 @@ import { DataService } from './data.service';
     ReactiveFormsModule,
     MatChipsModule,
     MatIconModule,
+    MatProgressBarModule,
+    ToastrModule.forRoot(),
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

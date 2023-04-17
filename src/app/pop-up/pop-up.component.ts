@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { DataService } from '../data.service';
 import { BuilderComponent } from '../builder/builder.component';
+export interface Fruit {
+  name: string;
+}
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css'],
 })
+
+
 export class PopUpComponent {
   
   text: string = '';
   questionType: string = '';
   isrequired: boolean = false;
   fourth: boolean = false;
-  questions: any[] = [];
   checkQ = {
     Question: '',
     Option1: '',
@@ -124,4 +128,5 @@ export class PopUpComponent {
       }
     });
   }
+
 }

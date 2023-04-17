@@ -1,18 +1,18 @@
 .text-div
 {
-    display:block;
-    align-items: center;
-    margin-left: 20px;
+    margin: 10px;
 }
 
 .check-div
 {
-    display:block;
-    align-items: center;
-    margin-left: 20px;
+  margin: 10px;
 }
 
 .checkOptionDiv{
   font-size: 16px;
   margin-left: 4px;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
 }
