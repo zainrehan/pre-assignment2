@@ -9,16 +9,18 @@
                     <br>
                     <cdk-virtual-scroll-viewport itemSize="20" style="height: 400px;">
                         <strong>Progress</strong>
-        <mat-progress-bar mode='buffer'value="50"></mat-progress-bar><br>
+                        <mat-progress-bar mode='buffer' value="50"></mat-progress-bar><br>
                         <div *cdkVirtualFor="let quest of viewQuestions; let i=index">
                             <div *ngIf="quest.type === 'textarea'">
-                                <strong *ngIf="this.quest.validation === true ; else com "style="font-size:large; color: red;">{{quest.Question}}*</strong><br>
-                                <ng-template #com >
+                                <strong *ngIf="this.quest.validation === true ; else com "
+                                    style="font-size:large; color: red;">{{quest.Question}}*</strong><br>
+                                <ng-template #com>
                                     <strong style="font-size:large;">{{quest.Question}}</strong><br>
                                 </ng-template>
                                 <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText[i]"
                                     #tA="ngModel" required></textarea>
-                                <button [disabled]="tA" class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit Answer</button>
+                                <button [disabled]="tA.invalid && tA.untouched" class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit
+                                    Answer</button>
                             </div>
                             <div *ngIf="quest.type === 'checkbox' && quest.Option5 === false ">
                                 <strong>{{quest.Question}}*</strong><br>

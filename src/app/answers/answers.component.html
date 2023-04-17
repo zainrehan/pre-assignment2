@@ -4,6 +4,8 @@
         <div class="col-md">
             <mat-card>
                 <cdk-virtual-scroll-viewport itemSize="10" style="height: 400px;">
+                    <br><strong>Progress</strong>
+                    <mat-progress-bar mode='buffer' value="100"></mat-progress-bar><br>
                     <div *ngFor="let qes of viewQuestion;let i=index">
                         <div *ngIf="qes.type ==='textarea'">
                             <strong>

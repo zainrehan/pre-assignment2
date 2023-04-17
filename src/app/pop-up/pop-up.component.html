@@ -9,25 +9,27 @@
     </mat-form-field>
     <div *ngIf="questionType === 'textarea'" class="text-div">
         <strong>Progress</strong>
-        <mat-progress-bar mode='buffer'value="30"></mat-progress-bar><br>
-        <input type="text" class="form-control" placeholder="Write your Question here" [(ngModel)]="this.text" name="textQuestion" #textQuestion="ngModel"
-            required><br>
-            <span *ngIf="textQuestion.invalid && textQuestion.touched" style="color: red;">Please Enter Question<br></span>
+        <mat-progress-bar mode='buffer' value="30"></mat-progress-bar><br>
+        <input type="text" class="form-control" placeholder="Write your Question here" [(ngModel)]="this.text"
+            name="textQuestion" #textQuestion="ngModel" required><br>
+        <span *ngIf="textQuestion.invalid && textQuestion.touched" style="color: red;">Please Enter Question<br></span>
         <label class="form-check-label">
             <input type="checkbox" class="form-check-input" [(ngModel)]="isrequired">
             This field is required
         </label>
         <br><br>
-        <button type="submit" class="btn btn-warning" [disabled]="textQuestion.invalid" (click)="onSubmit(text)">Submit</button>
+        <button type="submit" class="btn btn-warning" [disabled]="textQuestion.invalid"
+            (click)="onSubmit(text)">Submit</button>
         <br>
     </div>
 
     <div *ngIf="questionType === 'checkbox'" class="check-div">
         <strong>Progress</strong>
-        <mat-progress-bar mode='buffer'value="30"></mat-progress-bar><br>
-         <input type="text" class="form-control" placeholder="Write your Question here" [(ngModel)]="this.checkQ.Question"
-           #checkQuestion="ngModel" required>
-            <span *ngIf="checkQuestion.invalid && checkQuestion.touched" style="color: red;">Please Enter Question<br></span>
+        <mat-progress-bar mode='buffer' value="30"></mat-progress-bar><br>
+        <input type="text" class="form-control" placeholder="Write your Question here"
+            [(ngModel)]="this.checkQ.Question" #checkQuestion="ngModel" required>
+        <span *ngIf="checkQuestion.invalid && checkQuestion.touched" style="color: red;">Please Enter
+            Question<br></span>
         <br>
         <label class="form-check-label">
             <input type="checkbox" class="form-check-input" [(ngModel)]="fourth">
@@ -53,7 +55,8 @@
                 <input matInput type="text" [(ngModel)]="this.checkQ.Option4">
             </mat-form-field>
         </div>
-        <button type="submit" class="btn btn-warning" [disabled]="checkQuestion.invalid||op1.invalid||op2.invalid" (click)="onCheckSubmit(this.checkQ.Question)">Submit</button>
+        <button type="submit" class="btn btn-warning" [disabled]="checkQuestion.invalid||op1.invalid||op2.invalid"
+            (click)="onCheckSubmit(this.checkQ.Question)">Submit</button>
         <br><br>
     </div>
 </mat-card>

@@ -1,22 +1,16 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { DataService } from '../data.service';
 import { BuilderComponent } from '../builder/builder.component';
-export interface Fruit {
-  name: string;
-}
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css'],
 })
-
-
 export class PopUpComponent {
-  
   text: string = '';
   questionType: string = '';
   isrequired: boolean = false;
@@ -54,8 +48,8 @@ export class PopUpComponent {
       title: 'Would you like to add and other Question?',
       icon: 'question',
       showCancelButton: true,
-      confirmButtonText:'Yes',
-      cancelButtonText:'No',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
       confirmButtonColor: '#FFA500',
       iconColor: '#FFA500',
     }).then((value) => {
@@ -80,8 +74,8 @@ export class PopUpComponent {
       title: 'Would you like to add and other Question?',
       icon: 'question',
       showCancelButton: true,
-      confirmButtonText:'Yes',
-      cancelButtonText:'No',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
       confirmButtonColor: '#FFA500',
       iconColor: '#FFA500',
     }).then((value) => {
@@ -128,5 +122,4 @@ export class PopUpComponent {
       }
     });
   }
-
 }
