@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { DataService } from '../data.service';
 import { BuilderComponent } from '../builder/builder.component';
+import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css'],
 })
-export class PopUpComponent {
+export class PopUpComponent implements OnInit {
   text: string = '';
   questionType: string = '';
   isrequired: boolean = false;
@@ -27,8 +29,17 @@ export class PopUpComponent {
   constructor(
     private router: Router,
     private Mat: MatDialog,
-    private dservice: DataService
+    private dservice: DataService,
+    private toastr:ToastrService
   ) {}
+
+  ngOnInit(): void {
+    this.toastr.info('Select Question Type', 'Question Type Pop-up',{
+      timeOut:2000,
+      progressBar:true,
+      progressAnimation:'increasing',
+    });
+  }
 
   onSubmit(abc: any) {
     this.dservice.globalQuestions({
@@ -118,7 +129,7 @@ export class PopUpComponent {
         });
         this.router.navigate(['form/builder']);
         this.Mat.closeAll();
-        this.Mat.open(BuilderComponent);
+        // this.Mat.open(BuilderComponent);
       }
     });
   }

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-builder',
@@ -35,7 +34,23 @@ export class BuilderComponent implements OnInit {
 
   ngOnInit(): void {
     this.viewQuestions = this.dservice.getGlobalQuestions();
-    this.toastr.success('Welcome to Builder Component', 'from/builder');
+    this.toastr.success('Welcome to Builder Component', 'from/builder',{
+      timeOut:2000,
+      progressBar:true,
+      progressAnimation:'increasing',
+    });
+  }
+
+  abc(form:NgForm){
+    console.log(form)
+  //  this.answerOption= {
+  //     Answer: form.value,
+  //     Option1: false,
+  //     Option2: false,
+  //     Option3: false,
+  //     Option4: false,
+  //     Option5: null,
+  //   };
   }
 
 
