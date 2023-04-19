@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { DataService } from '../data.service';
 import { BuilderComponent } from '../builder/builder.component';
 import { ToastrService } from 'ngx-toastr';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pop-up',

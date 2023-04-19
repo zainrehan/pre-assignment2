@@ -41,17 +41,24 @@ export class BuilderComponent implements OnInit {
     });
   }
 
-  abc(form:NgForm){
-    console.log(form)
-  //  this.answerOption= {
-  //     Answer: form.value,
-  //     Option1: false,
-  //     Option2: false,
-  //     Option3: false,
-  //     Option4: false,
-  //     Option5: null,
-  //   };
-  }
+  // abc(formdata:NgForm){
+  //   console.log(formdata)
+  //   while(this.index===this.dservice.getGlobalQuestions().length){
+  //     this.answerOption= {
+  //       Answer: formdata.form.value['taAnswer0'],
+  //       Option1: false,
+  //       Option2: false,
+  //       Option3: false,
+  //       Option4: false,
+  //       Option5: null,
+  //     };
+  //     this.index++ 
+  //   }  
+  //   console.log(this.dservice.getGlobalQuestions().length)
+  //   console.log(this.answerOption)  
+  //   // this.index++
+  //   // console.log(this.answerOption)  
+  // }
 
 
   answerPage() {
