@@ -12,7 +12,7 @@
                         <mat-progress-bar mode='buffer' value="50"></mat-progress-bar><br>
                         <div *cdkVirtualFor="let quest of viewQuestions; let i=index">
                             <div *ngIf="quest.type === 'textarea'">
-                                <strong *ngIf="this.quest.validation === true ; else com "
+                                <strong *ngIf="this.quest.validations === true ; else com "
                                     style="font-size:large; color: red;">{{quest.Question}}*</strong><br>
                                 <ng-template #com>
                                     <strong style="font-size:large;">{{quest.Question}}</strong><br>
