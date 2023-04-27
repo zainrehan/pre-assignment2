@@ -76,15 +76,15 @@
                                     <strong style="font-size:large; color: red;">{{quest.Question}}*</strong>
                                 </label><br>
                                 <ng-template #com>
-                                   <label>
-                                    <strong style="font-size:large;">{{quest.Question}}</strong>
-                                   </label><br>
+                                    <label>
+                                        <strong style="font-size:large;">{{quest.Question}}</strong>
+                                    </label><br>
                                 </ng-template>
-                                <!-- <label for="taQuestions"><strong>{{quest.Question}}</strong></label> -->
                                 <input type="text" class="form-control" name="taAnswer{{i}}" ngModel required><br>
                             </div>
                             <div class="form-group" *ngIf="quest.type === 'checkbox'">
-                                <label class="form-check-label" for="caQuestions"><strong>{{quest.Question}}</strong></label><br>
+                                <label class="form-check-label"
+                                    for="caQuestions"><strong>{{quest.Question}}</strong></label><br>
                                 <div class="form-check" *ngIf="this.quest.Option1 != '' ">
                                     <input class="form-check-input" type="checkbox" name="opt1{{i}}" id="op1" ngModel
                                         #opt1="ngModel">
@@ -106,13 +106,16 @@
                                     <label class="form-check-label" for="op4">{{quest.Option4}}</label>
                                 </div>
                             </div>
-                             <div *ngIf="quest.Option5 === true">
-                        <input type="checkbox" name="" id="" ngModel #nature="ngModel">
-                        <input *ngIf="nature.value=== true" class="form-control" type="text" name="catext{{i}}" ngModel #catext="ngModel">
-                    </div>
+                            <div *ngIf="quest.Option5 === true">
+                                <input type="checkbox" name="" id="" ngModel #nature="ngModel">
+                                <label for="form-check-label"> Other</label>
+                                <div *ngIf="nature.value === true">
+                                    <input class="form-control" type="text" name="catext{{i}}" ngModel required>
+                                </div>
+                            </div>
                         </div>
                         <a [routerLink]="''" style="margin:10px;">+ Add New Question</a><br><br>
-                <button class="btn btn-warning" type="submit">Review My Answers ></button>
+                        <button class="btn btn-warning" type="submit">Review My Answers ></button>
                     </form>
                     <!-- <div *ngIf="quest.Option5 === true">
                         <input type="checkbox" name="" id="" ngModel #nature="ngModel">
