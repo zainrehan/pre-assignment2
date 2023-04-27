@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md"></div>
         <div class="col-md" style="margin-top: 80px;">
-            <mat-card>
+            <!-- <mat-card>
                 <div style="width: 400px; margin-left: 10px;">
                     <mat-label style="font-size: large; font-weight: bold; margin-left: 70px;">Answer Following
                         Questions</mat-label>
@@ -18,7 +18,7 @@
                                     <strong style="font-size:large;">{{quest.Question}}</strong><br>
                                 </ng-template>
                                 <textarea style="width: 95%; font-size:large;" [(ngModel)]="this.answerText[i]"
-                                    #tA="ngModel" required></textarea>
+                                    #tA="ngModel" minlength="3" required></textarea>
                                 <button [disabled]="tA.invalid && tA.untouched" class="btn btn-warning" (click)="onSubmitTextAnswer()">Submit
                                     Answer</button>
                             </div>
@@ -63,7 +63,64 @@
                     <button class="btn btn-warning" (click)="answerPage()" style="float: right; margin: 10px;">Review My
                         Answers ></button>
                 </div>
+            </mat-card> -->
+
+            <mat-card>
+                <h3 style="font-size: large; font-weight: bold; margin-left: 50px;">Answer the following Questions
+                </h3>
+                <div style="width: 400px; margin-left: 20px;">
+                    <form (ngSubmit)="abc(f)" #f="ngForm">
+                        <div *ngFor="let quest of viewQuestions; let i=index">
+                            <div class="form-group" *ngIf="quest.type === 'textarea'">
+                                <label *ngIf="this.quest.validations === true ; else com ">
+                                    <strong style="font-size:large; color: red;">{{quest.Question}}*</strong>
+                                </label><br>
+                                <ng-template #com>
+                                   <label>
+                                    <strong style="font-size:large;">{{quest.Question}}</strong>
+                                   </label><br>
+                                </ng-template>
+                                <!-- <label for="taQuestions"><strong>{{quest.Question}}</strong></label> -->
+                                <input type="text" class="form-control" name="taAnswer{{i}}" ngModel required><br>
+                            </div>
+                            <div class="form-group" *ngIf="quest.type === 'checkbox'">
+                                <label class="form-check-label" for="caQuestions"><strong>{{quest.Question}}</strong></label><br>
+                                <div class="form-check" *ngIf="this.quest.Option1 != '' ">
+                                    <input class="form-check-input" type="checkbox" name="opt1{{i}}" id="op1" ngModel
+                                        #opt1="ngModel">
+                                    <label class="form-check-label" for="op1">{{quest.Option1}}</label>
+                                </div>
+                                <div class="form-check" *ngIf="this.quest.Option2 != '' ">
+                                    <input class="form-check-input" type="checkbox" name="opt2{{i}}" id="op2" ngModel
+                                        #opt2="ngModel">
+                                    <label class="form-check-label" for="op2">{{quest.Option2}}</label>
+                                </div>
+                                <div class="form-check" *ngIf="this.quest.Option3 != '' ">
+                                    <input class="form-check-input" type="checkbox" name="opt3{{i}}" id="op3" ngModel
+                                        #opt3="ngModel">
+                                    <label class="form-check-label" for="op3">{{quest.Option3}}</label>
+                                </div>
+                                <div class="form-check" *ngIf="this.quest.Option4 != '' ">
+                                    <input class="form-check-input" type="checkbox" name="opt4{{i}}" id="op4" ngModel
+                                        #opt4="ngModel">
+                                    <label class="form-check-label" for="op4">{{quest.Option4}}</label>
+                                </div>
+                            </div>
+                             <div *ngIf="quest.Option5 === true">
+                        <input type="checkbox" name="" id="" ngModel #nature="ngModel">
+                        <input *ngIf="nature.value=== true" class="form-control" type="text" name="catext{{i}}" ngModel #catext="ngModel">
+                    </div>
+                        </div>
+                        <a [routerLink]="''" style="margin:10px;">+ Add New Question</a><br><br>
+                <button class="btn btn-warning" type="submit">Review My Answers ></button>
+                    </form>
+                    <!-- <div *ngIf="quest.Option5 === true">
+                        <input type="checkbox" name="" id="" ngModel #nature="ngModel">
+                        <input *ngIf="nature.value=== true" class="form-control" type="text" name="catext" ngModel #catext="ngModel">
+                    </div> -->
+                </div>
             </mat-card>
+
         </div>
         <div class="col-md"></div>
     </div>
